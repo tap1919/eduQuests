@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crystal Crossing · Power of Ten</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="rounding-ruins.css">
+<script src="rounding-ruins.js" defer></script>
+</head>
+<body>
+<header><a class="chapter-link" href="./">← Power of Ten</a><a class="chapter-link" href="rounding-scroll.html">Read the Rounding Scroll</a></header>
+<main class="ruins">
+  <div class="ruins-heading">
+    <div><div class="eyebrow">Chapter Four · Rounding</div><h1>Crystal Crossing</h1></div>
+    <div class="crystal-counter"><span aria-hidden="true">◆</span> <strong id="crystal-count">0 / 6</strong> crystals</div>
+  </div>
+  <section class="ruins-intro" id="intro">
+    <h2>Cross the poisoned ruins</h2>
+    <p>Jump over poison pits and touch each crystal. Round the number correctly to light the crystal, open the gate, and save your checkpoint.</p>
+    <p>Deeper in the ruins, watch for a moving ledge, cracked stone, and a dart launcher that flashes before it fires.</p>
+    <p><strong>Move</strong> with ← → or A / D. <strong>Jump</strong> with Space, ↑, or W. Touch controls are below the game.</p>
+    <button class="primary" id="begin">Enter the ruins →</button>
+  </section>
+  <section id="play" hidden aria-label="Crystal Crossing game">
+    <div class="ruins-stage">
+      <canvas id="course" width="960" height="375" tabindex="0" aria-label="Side-scrolling ruins. Use left and right to move and Space to jump."></canvas>
+    </div>
+    <div class="ruins-controls" aria-label="Touch controls">
+      <button id="move-left" aria-label="Move left">←</button>
+      <button id="move-right" aria-label="Move right">→</button>
+      <button id="jump">Jump ↑</button>
+    </div>
+    <p id="course-status" class="course-status" role="status" aria-live="polite">TEN: The green pools are poison. Jump from the stone edge.</p>
+  </section>
+  <section id="finish" class="ruins-intro" hidden>
+    <p class="eyebrow">Six crystals lit</p><h2 tabindex="-1" id="finish-title">Crystal Crossing cleared!</h2>
+    <p>You opened the exit and earned the <strong>Crystal Pathfinder</strong> seal.</p>
+    <p id="run-summary"></p>
+    <div class="actions"><a class="chapter-link" href="mummy-battle.html">Enter the mummy’s tomb →</a><button id="replay" class="primary">Play again →</button></div>
+  </section>
+  <dialog id="crystal-quiz" aria-labelledby="quiz-title">
+    <form id="round-form">
+      <div class="eyebrow" id="quiz-stage"></div>
+      <h2 id="quiz-title">Light the crystal</h2>
+      <p id="question"></p>
+      <label for="round-answer">Your rounded answer</label>
+      <input id="round-answer" type="text" inputmode="decimal" autocomplete="off" maxlength="16">
+      <p id="quiz-feedback" role="status" aria-live="polite"></p>
+      <div class="actions"><button id="check-round" class="primary" type="submit">Check answer</button><button id="round-hint" type="button">Ask TEN for a hint</button><button id="resume" class="primary" type="button" hidden>Continue across the ruins →</button></div>
+    </form>
+  </dialog>
+</main>
+</body>
+</html>

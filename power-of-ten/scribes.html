@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Chamber of Scribes · Power of Ten</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="scribes.css">
+<script src="scribe-codes.js" defer></script><script src="scribes.js" defer></script>
+</head>
+<body>
+<header><a class="chapter-link" href="./">← Power of Ten</a><span class="eyebrow">Chapter 03</span></header>
+<main class="scribes">
+  <div class="scribe-heading"><div><div class="eyebrow">Grand Archive</div><h1>The Chamber of Scribes</h1></div>
+  <div class="torches" id="torches" hidden aria-label="3 torches remaining"><span aria-hidden="true">◆ ◆ ◆</span><small>TORCHES</small></div></div>
+  <section id="intro" class="scribe-panel">
+    <h2>Read the inscription. Unlock the door.</h2>
+    <p>Type each number in standard form. Five codes open a chamber, including at least two decimal codes. Clearing a chamber restores one torch if you’re below three. Wrong codes cost a torch. Lose all three and you’ll return to the first chamber with fresh inscriptions.</p>
+    <button id="begin" class="primary">Enter the first chamber →</button>
+  </section>
+  <section id="game" hidden>
+    <div class="room-heading"><h2 id="room" tabindex="-1"></h2><span id="progress"></span></div>
+    <div class="scribe-scene" id="scene" aria-hidden="true"><div class="door-mask"><div class="closed-door"></div></div><div class="scribe-hero"></div></div>
+    <div id="puzzle" class="inscription">
+      <div class="inscription-heading">
+        <p class="inscription-label">CARVED INSCRIPTION</p>
+        <div class="scribe-locks" id="locks" role="img" aria-label="0 of 5 locks released">
+          <span aria-hidden="true">◆</span><span aria-hidden="true">◆</span><span aria-hidden="true">◆</span><span aria-hidden="true">◆</span><span aria-hidden="true">◆</span>
+        </div>
+      </div>
+      <p id="words" class="number-words"></p>
+      <form id="code-form"><label for="code">Enter the number in standard form</label>
+        <div class="code-entry"><input id="code" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" maxlength="32" aria-describedby="words"><button type="submit" class="primary">Check code</button></div>
+      </form>
+      <div id="code-celebration" class="code-celebration" hidden>
+        <span class="celebration-mark" aria-hidden="true">✓</span>
+        <div><strong id="celebration-title"></strong><span id="celebration-detail"></span></div>
+        <span class="celebration-spark" aria-hidden="true">✦</span>
+      </div>
+      <button id="hint" type="button" class="quiet">Ask TEN for a hint</button>
+    </div>
+    <div class="scribe-feedback"><div class="scribe-ten" aria-hidden="true"></div><p id="feedback" role="status" aria-live="polite"></p><button id="next" class="primary" hidden></button></div>
+  </section>
+  <section id="result" class="scribe-panel" hidden>
+    <div id="reward-art" class="scribe-seal" aria-hidden="true" hidden></div>
+    <h2 id="result-title" tabindex="-1"></h2><p id="result-copy"></p>
+    <div class="actions"><button id="restart" class="primary">Start again →</button><button id="secret" hidden>Enter the secret room →</button></div>
+  </section>
+</main>
+</body>
+</html>

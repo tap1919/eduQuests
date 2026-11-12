@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Mummy’s Last Stand · Power of Ten</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="mummy-battle.css">
+<script src="scribe-codes.js" defer></script><script src="mummy-battle.js" defer></script>
+</head>
+<body>
+<header><a class="chapter-link" href="./">← Power of Ten</a><span class="eyebrow">Final Battle</span></header>
+<main class="boss">
+  <div class="boss-heading">
+    <div><div class="eyebrow">Grand Archive · Royal Tomb</div><h1>The Mummy’s Last Stand</h1></div>
+    <div class="boss-count" id="count" hidden></div>
+  </div>
+  <div class="boss-arena" id="arena" aria-hidden="true">
+    <div class="boss-explorer"></div><div class="boss-mummy"></div><div class="boss-impact">✦</div>
+  </div>
+  <section id="intro" class="boss-panel">
+    <h2>Break the mummy’s defenses</h2>
+    <p>Answer 20 questions on place value, standard form, expanded form, powers of ten, and rounding. Each correct answer lands a hit. A missed answer lets the mummy counter.</p>
+    <p><strong>Land 16 hits to win.</strong> There’s no timer. Each question is scored once, and you’ll review your answers after the battle.</p>
+    <button id="begin" class="primary">Enter the tomb →</button>
+  </section>
+  <section id="battle" hidden>
+    <div class="boss-hud">
+      <div class="boss-meter">
+        <label for="wards">Mummy wards <strong id="ward-count">16 / 16</strong></label>
+        <meter id="wards" min="0" max="16" value="16">16</meter>
+      </div>
+      <div class="boss-tally"><strong id="hits">0</strong> hits <span>·</span> <strong id="counters">0</strong> counters</div>
+    </div>
+    <div class="boss-scroll">
+      <div class="eyebrow" id="skill"></div>
+      <h2 id="prompt" tabindex="-1"></h2>
+      <form id="attack-form">
+        <div id="choices"></div>
+        <div id="entry" class="boss-entry" hidden><label for="answer">Your answer</label><input id="answer" type="text" inputmode="decimal" autocomplete="off" maxlength="32"></div>
+        <div class="actions"><button type="submit" id="attack" class="primary">Lock in attack →</button><button type="button" id="next" class="primary" hidden></button></div>
+      </form>
+      <p id="battle-feedback" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+  <section id="results" class="boss-panel" hidden>
+    <div class="eyebrow">Assessment results</div>
+    <h2 id="result-title" tabindex="-1"></h2>
+    <p class="boss-score" id="score"></p>
+    <p id="result-copy"></p>
+    <div class="skill-scores" id="skill-scores"></div>
+    <details id="review"><summary>Review all 20 questions</summary><ol id="review-list"></ol></details>
+    <div class="actions"><button id="replay" class="primary">Battle again →</button><a class="chapter-link" href="./">Return to the archive</a></div>
+  </section>
+</main>
+</body>
+</html>

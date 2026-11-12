@@ -1,0 +1,34 @@
+[hidden]{display:none!important}
+.scribes{max-width:1050px;margin:auto;padding:clamp(16px,4vw,38px);border:0}
+.scribe-heading,.room-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.scribe-heading h1{font-size:clamp(29px,5vw,51px);margin:6px 0 18px}.room-heading h2{margin:0}.room-heading span{color:var(--muted);font-size:.85rem}.room-heading{margin:0 0 12px}
+.torches{color:var(--gold);border:1px solid #856637;background:#152630;padding:8px 16px;text-align:center;min-width:112px}.torches span{font-size:21px;white-space:nowrap}.torches small{display:block;letter-spacing:1px;font-size:10px}
+.scribe-panel{padding:clamp(20px,5vw,48px);border:1px solid #896638;background:linear-gradient(90deg,#102029f5,#102029a8),url(assets/scribe-rooms.png) left top/200% 300%;}.scribe-panel p{max-width:58ch}
+.scribe-scene{position:relative;aspect-ratio:2.25;overflow:hidden;border:1px solid #8a673c;background:url(assets/scribe-rooms.png) left top/200% 300% no-repeat;image-rendering:pixelated}
+.door-mask{position:absolute;overflow:hidden;left:var(--door-left);top:var(--door-top);width:var(--door-width);height:var(--door-height)}
+.closed-door{width:100%;height:100%;background:#362e27 url(assets/scribe-props.png) 9.12% 11.7% / 850% 468% no-repeat;transition:transform .65s ease-in}
+.unlocked .closed-door{transform:translateY(-102%)}
+.scribe-hero{position:absolute;left:18%;bottom:17%;width:clamp(32px,7%,66px);aspect-ratio:240/470;background:url(assets/scribe-characters.png) 8.8% 4% / 739.16% 188.72% no-repeat;transition:left .65s ease}
+.unlocked .scribe-hero{left:68%}
+.inscription{padding:clamp(15px,3vw,26px);background:radial-gradient(ellipse at center,#f3e4bf,#d9b078);border:1px solid #a57543;border-block:5px solid #926036;color:#312013}
+.inscription-label{font-size:10px;letter-spacing:2px;font-weight:800;margin:0;color:#6c4726}.number-words{font-family:Georgia,serif;font-weight:bold;font-size:clamp(21px,3.5vw,34px);line-height:1.3;margin:8px 0 16px}
+#code-form label{font-size:.85rem;font-weight:bold}.code-entry{display:flex;gap:8px;margin:5px 0 12px}.code-entry input{flex:1;min-width:0;width:auto;color:#17242b;background:#fff6df;border-color:#876239;font-size:clamp(16px,3vw,24px)}.inscription .quiet{color:#312013;border-color:#886038}
+.scribe-feedback{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 14px;border:1px solid var(--edge);background:#13252e}.scribe-feedback p{flex:1 1 210px;margin:0}.scribe-ten{width:34px;aspect-ratio:192/298;background:url(assets/archive-characters.png) 8.09% 95.93% / 923.96% 297.65% no-repeat}
+.scribe-seal{width:92px;aspect-ratio:1;background:url(assets/scribe-props.png) 99% 97% / 468% 351% no-repeat;margin:0 0 16px}
+@media(prefers-reduced-motion:reduce){.closed-door,.scribe-hero{transition:none}}
+
+.inscription-heading{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.scribe-locks{display:flex;gap:5px}
+.scribe-locks span{display:grid;place-items:center;width:22px;height:22px;border:1px solid #9a774b;background:#f0d5a5;color:#77522c;border-radius:4px;font-size:12px}
+.scribe-locks .released{background:#166157;color:#e5fff0;border-color:#12463f;box-shadow:0 0 8px #16615755}
+.code-correct .code-entry input{border-color:#166157;background:#e6f5e6;color:#173b33;opacity:1}
+.code-celebration{display:flex;align-items:center;gap:12px;padding:10px 14px;border:2px solid #45877b;border-radius:6px;background:#143e36;color:#fff7d7;animation:scribe-reveal .35s ease-out}
+.celebration-mark{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:50%;background:#87e4be;color:#133830;font-size:22px;font-weight:800}
+.code-celebration strong,.code-celebration div span{display:block}.code-celebration strong{font-size:1.14rem}.code-celebration div span{font-size:.83rem;color:#c9ebd8;overflow-wrap:anywhere}
+.celebration-spark{margin-left:auto;color:#efc771;font-size:27px;animation:scribe-spark .55s ease-out}
+.code-celebration.chamber-cleared{background:#49351c;border-color:#a96d28}.chamber-cleared .celebration-mark{background:#f5cf77;color:#402c15}.chamber-cleared div span{color:#f5e5be}
+.code-correct .scribe-hero{width:clamp(40px,9%,90px);aspect-ratio:324/480;background-position:96.6% 1.2%;background-size:547.53% 184.79%;animation:scribe-cheer .45s ease-out}
+@keyframes scribe-reveal{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes scribe-spark{from{transform:scale(.5) rotate(-25deg)}to{transform:none}}
+@keyframes scribe-cheer{50%{transform:translateY(-10px)}}
+@media(prefers-reduced-motion:reduce){.code-celebration,.celebration-spark,.code-correct .scribe-hero{animation:none}}

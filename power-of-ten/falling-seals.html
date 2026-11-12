@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Falling Seals · Power of Ten</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="falling-seals.css">
+<script src="falling-seals.js" defer></script>
+</head>
+<body>
+<header><a href="./" class="chapter-back">← Power of Ten</a><span class="eyebrow">Chapter 02 / The Falling Seals</span></header>
+<main class="falling-game">
+  <section class="challenge-heading">
+    <div><div class="eyebrow">Grand Archive / Lower Passage</div><h1>The Falling Seals</h1></div>
+    <div class="challenge-stats" aria-label="Run progress">
+      <span>ROUND <strong id="round">—</strong></span><span>STREAK <strong id="streak">0</strong></span><span>BEST <strong id="best">0</strong></span>
+    </div>
+  </section>
+  <section id="brief" class="challenge-panel">
+    <h2>Clear a path through the tunnel</h2>
+    <p>Find the place of the highlighted digit. Click or tap the matching boulder, or press <kbd>1</kbd>, <kbd>2</kbd>, or <kbd>3</kbd>.</p>
+    <p>Start with two practice questions, then clear ten seals to earn the Stonebreaker badge.</p>
+    <label class="pace-option"><input type="checkbox" id="untimed"> Play the entire run without a timer</label>
+    <button class="primary" id="begin">Start practice →</button>
+    <p id="earned" class="small" hidden>✦ Stonebreaker badge earned</p>
+  </section>
+  <section id="challenge" hidden>
+    <div class="question-panel">
+      <p>What place is the highlighted digit in?</p>
+      <div class="question-number" id="number"></div>
+    </div>
+    <div class="time-track" id="time-track" aria-hidden="true"><div id="time-left"></div></div>
+    <div class="tunnel" id="tunnel">
+      <div class="boulder-lanes" id="boulders"></div>
+      <div class="tunnel-hero" id="hero" role="img" aria-label="Explorer"></div>
+    </div>
+    <div class="round-feedback">
+      <div class="feedback-guide" aria-hidden="true"></div>
+      <p id="feedback" role="status" aria-live="polite"></p>
+      <button class="primary" id="advance" hidden></button>
+    </div>
+  </section>
+  <section id="result" class="challenge-panel" hidden>
+    <div class="eyebrow">Tunnel cleared</div>
+    <div class="stonebreaker" aria-hidden="true">◆</div>
+    <h2 id="result-title" tabindex="-1">Stonebreaker badge earned</h2>
+    <p id="result-summary"></p>
+    <button class="primary" id="replay">Play again →</button> <a class="chapter-link" href="scribes.html">Enter the Chamber of Scribes →</a>
+  </section>
+</main>
+</body></html>

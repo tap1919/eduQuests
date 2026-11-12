@@ -1,0 +1,46 @@
+[hidden] { display: none !important; }
+.boss { max-width: 1060px; margin: auto; padding: clamp(14px, 4vw, 36px); border: 0; }
+.boss-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.boss-heading h1 { font-size: clamp(28px, 5vw, 50px); margin: 5px 0 0; }
+.boss-count { padding: 7px 10px; border: 1px solid #896638; color: var(--gold); }
+.boss-arena { position: relative; height: clamp(170px, 36vw, 360px); background: url(assets/falling-tunnel.png) center / 100% 100%; border: 1px solid #896638; overflow: hidden; }
+.boss-explorer, .boss-mummy { position: absolute; bottom: 9%; transform: translateX(-50%); image-rendering: pixelated; }
+.boss-explorer { left: 24%; height: 42%; aspect-ratio: 184/467; background: url(assets/archive-characters.png) 8.81% 1.67% / 964.13% 189.94% no-repeat; }
+.boss-mummy { left: 73%; height: 66%; aspect-ratio: var(--mummy-ratio); background: url(assets/mummy-boss.png) var(--mummy-x) 0 / var(--mummy-scale) 100% no-repeat; --mummy-ratio: 432/720; --mummy-x: 0%; --mummy-scale: 500%; }
+.hero-hit .boss-mummy { --mummy-ratio: 510/720; --mummy-x: 68.85%; --mummy-scale: 423.53%; animation: mummy-recoil .42s ease-out; }
+.mummy-hit .boss-mummy { --mummy-ratio: 678/720; --mummy-x: 29.55%; --mummy-scale: 318.58%; }
+.mummy-hit .boss-explorer { animation: mummy-recoil .42s ease-out reverse; }
+.mummy-defeated .boss-mummy { --mummy-ratio: 504/720; --mummy-x: 100%; --mummy-scale: 428.57%; }
+.mummy-defeated .boss-explorer { height: 43%; aspect-ratio: 283/469; background-position: 93.9% 1.2%; background-size: 626.86% 189.13%; }
+.boss-impact { position: absolute; opacity: 0; bottom: 33%; font-size: clamp(30px, 8vw, 72px); }
+.hero-hit .boss-impact { left: 64%; color: #ffe0a0; animation: boss-impact .52s ease-out; }
+.mummy-hit .boss-impact { left: 26%; color: #9bedd4; animation: boss-impact .52s ease-out; }
+@keyframes boss-impact { 15% { opacity: 1; transform: scale(.7); } 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes mummy-recoil { 30% { transform: translateX(-36%); filter: brightness(1.6); } }
+.boss-panel { border: 1px solid #896638; background: #152630; padding: clamp(16px, 4vw, 30px); }
+.boss-panel p { max-width: 64ch; }
+.boss-hud { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #152630; border: 1px solid #896638; padding: 8px 12px; }
+.boss-meter { width: min(280px, 58%); }
+.boss-meter label { display: flex; justify-content: space-between; gap: 6px; font-size: .82rem; color: #f2d397; }
+.boss-meter meter { width: 100%; height: 13px; accent-color: #eabb64; }
+.boss-meter meter::-webkit-meter-optimum-value { background: #d7a554; }
+.boss-tally { white-space: nowrap; font-size: .85rem; }
+.boss-tally strong { color: var(--teal); }
+.boss-scroll { padding: clamp(15px, 3vw, 27px); color: #312013; background: radial-gradient(ellipse at center,#f8e9c3,#d9b278); border-block: 6px solid #926036; }
+.boss-scroll .eyebrow { color: #684422; }
+.boss-scroll h2 { font-family: Georgia, serif; font-size: clamp(20px, 3.3vw, 30px); margin: 6px 0 13px; line-height: 1.3; }
+#choices { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; }
+#choices label { display: flex; align-items: center; gap: 6px; padding: 8px; border: 1px solid #9b7547; border-radius: 4px; background: #fcf0d1; cursor: pointer; }
+#choices label:has(input:checked) { border-color: #176d5e; background: #d4f0db; }
+#choices input { width: auto; margin: 0; accent-color: #176d5e; }
+.boss-entry label { display: block; margin-bottom: 4px; font-weight: 700; }
+.boss-entry input { max-width: 100%; color: #312013; background: #fff6df; border-color: #876239; }
+#battle-feedback { min-height: 1.5em; margin: 10px 0 0; font-weight: 800; }
+.hit-feedback { color: #165344; }.counter-feedback { color: #7a3423; }
+.boss-score { font-size: clamp(25px, 5vw, 44px); color: var(--gold); font-weight: 800; margin: 0; }
+.skill-scores { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.skill-scores div { border: 1px solid #537e75; background: #183a3c; padding: 7px 10px; }
+#review summary { cursor: pointer; color: var(--gold); font-weight: 700; }
+#review-list { padding-left: 25px; } #review-list li { margin-bottom: 12px; } #review-list p { margin: 4px 0; }
+@media (max-width: 500px) { #choices { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion:reduce) { .boss-arena * { animation: none !important; } }

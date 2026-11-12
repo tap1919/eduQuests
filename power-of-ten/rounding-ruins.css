@@ -1,0 +1,22 @@
+[hidden] { display: none !important; }
+.ruins { max-width: 1100px; margin: auto; padding: clamp(14px, 4vw, 34px); border: 0; }
+.ruins-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+.ruins h1 { font-size: clamp(31px, 5vw, 53px); margin: 5px 0 0; }
+.crystal-counter { border: 1px solid #547d72; padding: 9px 13px; background: #142c34; }
+.crystal-counter span { color: var(--teal); }
+.ruins-intro { padding: clamp(18px, 4vw, 36px); border: 1px solid #896638; background: linear-gradient(90deg, #102029fa, #102029ac), url(assets/falling-tunnel.png) center / cover; }
+.ruins-intro p { max-width: 60ch; }
+.ruins-stage { border: 1px solid #8f6a39; background: #131f2c; }
+#course { width: 100%; height: auto; display: block; image-rendering: pixelated; touch-action: none; }
+.ruins-controls { display: flex; gap: 8px; margin: 12px 0; }
+.ruins-controls button { min-width: 54px; min-height: 48px; touch-action: none; user-select: none; }
+.ruins-controls #jump { margin-left: auto; }
+.course-status { background: #152630; border: 1px solid var(--edge); padding: 12px; }
+#crystal-quiz { width: min(520px, 92vw); color: #312013; background: radial-gradient(ellipse at center,#f8e9c3,#d9b278); border: 2px solid #a57543; border-block: 7px solid #926036; padding: clamp(18px, 4vw, 30px); }
+#crystal-quiz .eyebrow { color: #725025; }
+#quiz-title { margin: 6px 0; }
+#question { font-size: clamp(19px,4vw,26px); font-weight: 750; }
+#round-answer { display: block; width: 100%; margin-top: 5px; background: #fff6df; color: #312013; border-color: #876239; }
+#quiz-feedback { min-height: 1.5em; margin: 12px 0 0; }
+#quiz-feedback.correct { color: #125a46; font-weight: 800; }
+#crystal-quiz .actions { gap: 8px; }
