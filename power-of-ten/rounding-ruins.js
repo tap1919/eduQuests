@@ -210,32 +210,6 @@ function dartState(section) {
     x:launcherX-(phase-1.75)*384, y:floorY-31};
 }
 
-// Crumbling ledge sprite: 4 frames across the collapse window (0.65 s).
-const crumbleSprite = new Image();
-crumbleSprite.src = 'assets/sprites/sandstone-ledge-collapse_4f_128x64.png';
-const crumbleFrameWidth = 128;
-
-function crumbleFrame(block) {
-  if (block.crumbleAt === null) return 0;
-  const landed = block.crumbleAt - collapseDelay;
-  const elapsed = Math.max(0, courseTime - landed);
-  return Math.min(3, Math.floor(elapsed / (collapseDelay / 4)));
-}
-
-function drawCrumbleLedge(block, x) {
-  const width = block.right - block.left;
-  if (!crumbleSprite.naturalWidth) {
-    drawStone(x, block.y, width, 27);
-    return;
-  }
-  const sx = crumbleFrame(block) * crumbleFrameWidth;
-  // Two 127 px tiles cover the 254 px ledge; the sprite's top edge sits on the walkable surface.
-  for (let offset = 0; offset < width; offset += 127) {
-    context.drawImage(crumbleSprite, sx, 0, crumbleFrameWidth, 64,
-      x + offset, block.y, Math.min(127, width - offset), 64);
-  }
-}
-
 function drawDart(section, camera) {
   const dart = dartState(section);
   context.fillStyle = dart.warning ? '#ffe275' : '#98703e';
@@ -273,13 +247,17 @@ function draw(now) {
   }
   for (const block of blocks) {
     if (isCollapsed(block)) continue;
+    const floating = block.hazard === 'lift' || block.hazard === 'crumble';
     const x = block.left-camera;
-    if (block.hazard === 'crumble') {
-      drawCrumbleLedge(block, x);
-      continue;
-    }
-    const floating = block.hazard === 'lift';
     drawStone(x,block.y,block.right-block.left,floating ? 27 : canvas.height-block.y);
+    if (block.hazard === 'crumble') {
+      context.fillStyle = block.crumbleAt === null ? '#301e17' : '#ffe484';
+      for (let offset=14;offset<block.right-block.left-6;offset+=29) {
+        context.fillRect(x+offset,block.y+3,3,8);
+        context.fillRect(x+offset+3,block.y+10,5,3);
+        context.fillRect(x+offset+7,block.y+12,2,8);
+      }
+    }
   }
   drawExplorer(hero.x-camera,hero.y);
   if (lit === rooms.length) {
